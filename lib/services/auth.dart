@@ -14,6 +14,15 @@ class AuthService {
     }
   }
 
+  Future<void> emailLogin(email, password) async {
+    try {
+      await FirebaseAuth.instance
+          .signInWithEmailAndPassword(email: email, password: password);
+    } catch (e) {
+      //handle error
+    }
+  }
+
   Future<void> signOut() async {
     await FirebaseAuth.instance.signOut();
   }
